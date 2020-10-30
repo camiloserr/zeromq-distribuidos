@@ -3,7 +3,6 @@ const zmq = require("zeromq")
 const sock = new zmq.Subscriber();
 run();
 
-
 async function run(){
     sock.connect("tcp://127.0.0.1:7000");
     sock.subscribe("gato");

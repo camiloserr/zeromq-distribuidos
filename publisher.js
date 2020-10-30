@@ -10,16 +10,15 @@ async function run(){
     //process.stdin.once("data", send);
 }
 
+function submit(){
+    var asunto = document.getElementById("asunto");
+    var contenido = document.getElementById("contenido");
+
+    await sendInfo(asunto, contenido);
+}
+
 async function sendInfo( topic, message){
-    await sock.send(["gato" , "miau"]);
-    console.log(`enviado ${topic} : `)
+    await sock.send([topic , message]);
+    console.log(`enviado ${topic} : ${message}`)
 }
 
-async function send(){
-    console.log("Enviando info...");
-    for(let i = 0 ; i < 100 ; i++){
-        await sock.send(["gato" , "miau"]);
-
-        await new Promise(resolve => setTimeout(resolve, 500));
-    }
-}
